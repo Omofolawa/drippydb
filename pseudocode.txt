@@ -1,19 +1,22 @@
---Database Creation--
-CREATE DATABASE drippydb
+-- Database Creation --
+CREATE DATABASE drippydb;
 
-USE drippydb
+-- Use the Drippy database --
+USE drippydb;
 
 -- Employees Table --
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY IDENTITY(1,1),
     FirstName NVARCHAR(50),
     LastName NVARCHAR(50),
-    Role NVARCHAR(50),
+    JobRole NVARCHAR(50),
     Salary DECIMAL(10, 2),
     Address NVARCHAR(255),
     Phone NVARCHAR(20),
     Email NVARCHAR(100)
 );
+
+-- Description: Stores information about employees working at Drippy, including their names, job roles, salaries, contact details, and addresses.
 
 -- Customers Table --
 CREATE TABLE Customers (
@@ -25,21 +28,29 @@ CREATE TABLE Customers (
     Email NVARCHAR(100)
 );
 
+-- Description: Stores information about customers of Drippy, including their names, contact details, and addresses.
+
 -- Menu Table --
 CREATE TABLE Menu (
     MenuID INT PRIMARY KEY IDENTITY(1,1),
-    Name NVARCHAR(100),
-    Description NVARCHAR(255)
+    MenuName NVARCHAR(100),
+    Cuisine NVARCHAR(255)
 );
+
+-- Description: Represents the menu offered by Drippy, including the Menuname and Cuisine of each menu.
 
 -- MenuItems Table --
 CREATE TABLE MenuItems (
     MenuItemID INT PRIMARY KEY IDENTITY(1,1),
     MenuID INT FOREIGN KEY REFERENCES Menu(MenuID),
-    Name NVARCHAR(100),
-    Description NVARCHAR(255),
+    Starter NVARCHAR(100),
+    Course NVARCHAR(100),
+    Drink NVARCHAR(100),
+    Dessert NVARCHAR(100),
     Price DECIMAL(10, 2)
 );
+
+-- Description: Contains details of each menu item offered by Drippy, including starters, courses, drinks, desserts, and their prices.
 
 -- Bookings Table --
 CREATE TABLE Bookings (
@@ -48,3 +59,32 @@ CREATE TABLE Bookings (
     Date DATE,
     TableNumber INT
 );
+
+-- Description: Records bookings made by customers at Drippy, including the booking date, table number, and customer details.
+
+-- Orders Table --
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY IDENTITY(1,1),
+    OrderDate DATE,
+    Quantity INT,
+    CustomerID INT FOREIGN KEY REFERENCES Customers(CustomerID),
+    TotalCost DECIMAL(10, 2)
+);
+
+-- Description: Stores information about orders placed by customers at Drippy, including the order date, total cost, and customer details.
+
+-- OrderDelivery Table --
+CREATE TABLE OrderDelivery (
+    OrderDeliveryID INT PRIMARY KEY IDENTITY(1,1),
+    OrderID INT FOREIGN KEY REFERENCES Orders(OrderID),
+    DeliveryDate DATE,
+    Status NVARCHAR(50)
+);
+
+-- Description: Tracks the delivery status of orders placed by customers at Drippy, including the delivery date and current status.
+
+Sure, here's a quick and unprofessional summary:
+
+NVARCHAR is chosen over VARCHAR for SQL Server because it supports Unicode characters, making it ideal for multilingual data and 
+ensuring data integrity with non-ASCII characters. It's like choosing a universal language that can handle emojis and accents without 
+getting lost in translation. Plus, it's future-proofing your data for whatever linguistic adventures lie ahead.
