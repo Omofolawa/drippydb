@@ -1,0 +1,11 @@
+ALTER TABLE Bookings
+ADD CONSTRAINT FK_Bookings_Customers FOREIGN KEY (CustomerID)
+REFERENCES Customers(CustomerID);
+
+ALTER TABLE MenuItems
+ADD CONSTRAINT FK_MenuItemns_Menu FOREIGN KEY (MenuID)
+REFERENCES Menu(MenuID);
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_Orders_Customers FOREIGN KEY (CustomerID)
+REFERENCES Customers(CustomerID);

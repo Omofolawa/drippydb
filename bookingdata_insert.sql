@@ -1,7 +1,9 @@
---Insert into Booking syntaxes--
-INSERT INTO Bookings (CustomerID, Date, TableNumber)
+INSERT INTO Bookings (Date, TableNumber, CustomerID)
 VALUES
-(1, '2022-10-10', 5),
-(3, '2022-11-12', 3),
-(2, '2022-10-11', 2),
-(2, '2022-10-13', 1);
+    ('2024-01-15', 5, 1),
+    ('2024-01-23', 3, 3),
+    ('2024-02-17', 1, 2),
+	('2024-02-21', 2, 2),
+	('2024-03-03', 2, 1),
+    ('2024-03-13', 2, 4);
+

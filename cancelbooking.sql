@@ -4,9 +4,8 @@ CREATE PROCEDURE CancelBooking
     @BookingID INT
 AS
 BEGIN
-	--Delete booking syntax--
-    DELETE FROM Bookings	
+    DELETE FROM Bookings
     WHERE BookingID = @BookingID;
 
-    SELECT 'Booking Cancelled successfully' AS Message;
+    SELECT CONCAT('Booking with ID ', @BookingID, ' Cancelled successfully') AS Message;
 END;
