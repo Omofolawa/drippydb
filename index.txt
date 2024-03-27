@@ -1,0 +1,18 @@
+--Indexes in databases are data structures that enhance the speed and efficiency of data retrieval operations. 
+--They achieve this by providing a fast lookup mechanism to locate specific rows within a table. 
+--Faster Data Retrieval**: Indexes enable quick retrieval of data by allowing the database engine to locate specific rows based on indexed column(s).
+--Improved Query Performance**: By reducing the number of rows scanned, indexes significantly enhance the performance of SELECT queries, particularly with large datasets.
+--Enforcing Uniqueness**: Unique indexes ensure that values in indexed columns are unique, preventing duplicate entries.
+--Enforcing Constraints**: Indexes can enforce constraints like primary key and foreign key constraints, maintaining data integrity.
+--Sorting and Ordering**: They facilitate efficient sorting and ordering of query results, especially when combined with ORDER BY clauses.
+--Optimizing Joins**: Indexes on join columns optimize join operations between tables, speeding up complex queries.
+--Accelerating Search Operations**: Full-text indexes enable efficient searching of text data, allowing users to find relevant information quickly.
+
+Clustered Index: A clustered index is a specific type of index in which the physical order of rows in the table is dictated by the indexed column(s). 
+In other words, the rows in a table with a clustered index are stored on disk in the same order as the index key values. Each table can have only one clustered index because it determines the physical order of the data.
+In summary, indexes play a vital role in optimizing database performance by expediting data retrieval operations and enhancing overall query performance. Careful design and management of indexes are essential to ensure 
+optimal performance without introducing unnecessary overhead.
+
+A unique index is an index that enforces uniqueness on the values of one or more columns in a table. Unlike a regular index, 
+a unique index does not allow duplicate values for the indexed column(s). It ensures that every value in the indexed column(s) 
+is unique across all rows in the table.
