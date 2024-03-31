@@ -1,0 +1,3 @@
+ALTER TABLE Orders
+ADD EmployeeID INT FOREIGN KEY REFERENCES Employees(EmployeeID);
+
